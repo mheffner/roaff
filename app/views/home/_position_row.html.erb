@@ -1,0 +1,9 @@
+
+<div class="row">
+<% groups.each do |gr| %>
+  <div class="col-md-<%= gridsize %>">
+  <%= render partial: "position", locals: {name: gr[:name],
+     players: gr[:players]} %>
+  </div>
+<% end %>
+</div>

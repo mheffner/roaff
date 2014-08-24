@@ -1,0 +1,10 @@
+<div class="container-fluid">
+
+<% 0.upto(@playergroups.length) do |i| %>
+  <% next if i % 2 != 0 %>
+
+  <%= render partial: "position_row", locals: {gridsize: 6, groups:  @playergroups.slice(i, 2) } %>
+<% end %>
+</div>
+
+</div>

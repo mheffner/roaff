@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Roaff2014</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<script type="text/javascript">
+        $(function(){
+         $('.player-checkbox').on('change', function(elem){
+            var updateInfo = { picked: elem.target.checked };
+            $.ajax({type:"PUT", url: "/players/" + elem.target.value,
+                    data: updateInfo}).done(function (data) { 
+                 }).fail(function() {
+                   alert( "failed" );
+                 })
+            });
+        });
+</script>
+
+
+<%= yield %>
+
+</body>
+</html>

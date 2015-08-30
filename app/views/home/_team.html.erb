@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well well-sm">
 <h3><%= team.name %></h3>
 <table class="table table-condensed table-hover table-bordered">
 <thead>
@@ -10,14 +10,22 @@
 <th>Bye</th>
 </tr>
 </thead>
-<% team.picks.each do |pick| %>
+<% pick_map = {} %>
+<% team.picks.each {|pick| pick_map[pick.round] = pick} %>
+
+<% 1.upto(13) do |round| %>
 <tr class="player-row">
 
-<td><%= pick.round %></td>
-<td><%= pick.player.name %></td>
-<td><%= pick.player.position %></td>
-<td><%= pick.player.team %></td>
-<td><%= pick.player.bye_week %></td>
+  <% pick = pick_map[round] %>
+  <% if pick %>
+  <td><%= pick.round %></td>
+  <td><%= pick.player.name %></td>
+  <td><%= pick.player.position %></td>
+  <td><%= pick.player.team %></td>
+  <td><%= pick.player.bye_week %></td>
+  <% else %>
+  <td colspan="5"><%= round %></td>
+  <% end %>
 </tr>
 <% end %>
 </table>

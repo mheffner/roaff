@@ -3,7 +3,4 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  # enable chosen js
-  $('.chosen-select').chosen
-    no_results_text: 'No results matched'
-    width: '300px'
+   $('.player-select').select2();

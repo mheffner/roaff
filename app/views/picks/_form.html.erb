@@ -30,7 +30,7 @@
 
 <div class="form-group">
   <%= f.label :player_id, "Pick a Player" %>
-  <%= select_tag(:player_id, options_for_select(@avail_players.map{|p| [p.name_and_position, p.id]}, default_selected_player), include_blank: true, class: "chosen-select") %>
+  <%= select_tag(:player_id, options_for_select(@avail_players.map{|p| [p.name_and_position, p.id]}, default_selected_player), include_blank: true, class: "player-select") %>
 </div>
 
 <div class="form-group">
@@ -42,4 +42,10 @@
   <div class="actions">
     <%= f.submit class: "btn btn-default" %>
   </div>
-<% end %>
+  <% end %>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+  $(".js-example-basic-single").select2();
+    });
+    </script>

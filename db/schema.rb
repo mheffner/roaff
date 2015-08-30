@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824154635) do
+ActiveRecord::Schema.define(version: 20150830141438) do
+
+  create_table "picks", force: true do |t|
+    t.integer  "team_id",    null: false
+    t.integer  "player_id",  null: false
+    t.integer  "round",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "picks", ["player_id"], name: "index_picks_on_player_id", unique: true, using: :btree
+  add_index "picks", ["team_id", "round"], name: "index_picks_on_team_id_and_round", unique: true, using: :btree
 
   create_table "players", force: true do |t|
     t.string   "name",            null: false
@@ -23,6 +34,13 @@ ActiveRecord::Schema.define(version: 20140824154635) do
     t.integer  "picked"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.string   "name",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "draft_position", null: false
   end
 
 end

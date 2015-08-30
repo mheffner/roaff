@@ -1,0 +1,17 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Player</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% picks.each do |pick| %>
+    <tr>
+        <td><%= pick.player.name %></td>
+        <td><%= link_to 'Destroy', pick, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

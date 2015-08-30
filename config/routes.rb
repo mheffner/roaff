@@ -1,12 +1,29 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  post 'sessions/signin'
+  get 'sessions/signout'
+
+  get 'picks/index'
+
+  resources :teams
+
   get 'players/update'
+  get 'player_overview' => 'home#overview'
+  get 'team_overview' => 'home#team_overview'
+  get 'admin' => 'admin#index'
 
-  get 'home/overview'
+  post 'upload_players' => 'admin#upload_players'
 
-  get 'overview' => 'home#overview'
-  get 'admin' => 'home#admin'
+  delete 'drop_picks' => 'admin#drop_all_picks'
+  delete 'drop_players' => 'admin#drop_all_players'
 
   put 'players/:id' => 'players#update'
+
+  resources :players
+
+  resources :picks
+
+  root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

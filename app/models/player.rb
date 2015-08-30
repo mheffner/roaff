@@ -1,14 +1,17 @@
 class Player < ActiveRecord::Base
-
-  def self.notpicked
-    where(:picked => 0)
-  end
+  belongs_to :pick
 
   def picked?
-    picked == 1
+    !self.pick.nil?
   end
 
-  def setPicked(b)
-    self.picked = b ? 1 : 0
+  def self.notpicked
+    self.where("id NOT IN (SELECT DISTINCT(player_id) FROM picks)")
   end
+
+  def name_and_position
+    return "%s (%s)" % [name, position.upcase]
+  end
+
+
 end

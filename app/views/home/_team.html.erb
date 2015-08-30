@@ -1,0 +1,24 @@
+<div class="well">
+<h3><%= team.name %></h3>
+<table class="table table-condensed table-hover table-bordered">
+<thead>
+<tr>
+<th>Round</th>
+<th>Player</th>
+<th>Position</th>
+<th>Team</th>
+<th>Bye</th>
+</tr>
+</thead>
+<% team.picks.each do |pick| %>
+<tr class="player-row">
+
+<td><%= pick.round %></td>
+<td><%= pick.player.name %></td>
+<td><%= pick.player.position %></td>
+<td><%= pick.player.team %></td>
+<td><%= pick.player.bye_week %></td>
+</tr>
+<% end %>
+</table>
+</div>

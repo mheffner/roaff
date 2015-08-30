@@ -1,0 +1,22 @@
+<meta http-equiv="refresh" content="5">
+
+<% if @last_pick %>
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 text-info">
+    <h3>Last Pick: <%= @last_pick.player.name_and_position %> to <%= @last_pick.team.name %> in Round <%= @last_pick.round %> </h3>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+<% end %>
+
+<div class="container-fluid">
+
+  <% 0.upto(@teams.length) do |i| %>
+  <% next if i % 4 != 0 %>
+
+  <%= render partial: "team_row", locals: {gridsize: 3, teams: @teams.slice(i, 4) } %>
+  <% end %>
+
+</div>

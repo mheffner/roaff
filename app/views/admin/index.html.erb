@@ -1,0 +1,43 @@
+
+  <div class="well">
+    <h1>Actions</h1>
+    <p>
+      <%= link_to "New Team", new_team_path, class: "btn btn-default" %>
+    </p>
+  </div>
+
+  <div class="well">
+    <%= link_to "Make a Pick", new_pick_path, class: "btn btn-default" %>
+    <%= link_to "List Picks", picks_path, class: "btn btn-default" %>
+    <%= link_to "New Player", new_player_path, class: "btn btn-default" %>
+  </div>
+
+  <div class="well">
+  <% flash.each do |name, msg| -%>
+  <% if name == "success" %>
+    <div class="bg-success">
+  <% else %>
+    <div class="bg-danger">
+  <% end -%>
+     <%= content_tag :div, msg, class: name %>
+    </div>
+    <% end -%>
+
+    <%= form_tag(upload_players_path) do %>
+    <div class="form-group">
+      <%= label_tag :players_csv %>
+      <%= file_field_tag :players_csv %>
+    </div>
+    <div class="actions">
+      <%= submit_tag %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="well">
+    <p class="bg-danger">
+      <h1>DANGER!</h1>
+    </p>
+    <%= link_to "Drop All Picks", drop_picks_path, method: :delete, data: { confirm: 'Are you sure you want to drop ALL picks?' }, class: "btn btn-default" %>
+    <%= link_to "Drop All Players", drop_players_path, method: :delete, data: { confirm: 'Are you sure you want to drop ALL players?' }, class: "btn btn-default" %>
+  </div>

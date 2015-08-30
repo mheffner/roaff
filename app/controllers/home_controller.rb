@@ -1,13 +1,25 @@
 class HomeController < ApplicationController
   MAX = 10
 
+  before_filter :authorize
+
+  layout "nocontainer", except: [:index]
+
   def overview
     @playergroups = build_player_groups(MAX, false)
+  end
+
+  def team_overview
+    @teams = Team.all
+    @last_pick = Pick.unscoped.last
   end
 
   def admin
     @show_pick = true
     @playergroups = build_player_groups(nil, true)
+  end
+
+  def index
   end
 
   private

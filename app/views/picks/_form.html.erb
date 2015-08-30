@@ -1,0 +1,45 @@
+  <p id="notice"><%= notice %></p>
+
+  <% flash.each do |name, msg| -%>
+  <% if name == "success" %>
+    <div class="bg-success">
+  <% else %>
+    <div class="bg-danger">
+  <% end -%>
+     <%= content_tag :div, msg, class: name %>
+    </div>
+    <% end -%>
+
+<%= form_for(@pick) do |f| %>
+  <% if @pick.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pick.errors.count, "error") %> prohibited this pick from being saved:</h2>
+
+      <ul>
+      <% @pick.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-group">
+  <%= f.label :team_id, "Pick a Team" %>
+  <%= select_tag(:team_id, options_for_select(@teams.map{|t| [t.name, t.id]}, default_selected_team), prompt: "Team...", class: "form-control") %>
+</div>
+
+<div class="form-group">
+  <%= f.label :player_id, "Pick a Player" %>
+  <%= select_tag(:player_id, options_for_select(@avail_players.map{|p| [p.name_and_position, p.id]}, default_selected_player), prompt: "Player...", class: "form-control chosen-select") %>
+</div>
+
+<div class="form-group">
+  <%= f.label :round, "What round" %>
+  <%= select_tag(:round, options_for_select(1.upto(15).map{|r| ["Round #{r}", r]}), class: "form-control") %>
+</div>
+
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-default" %>
+  </div>
+<% end %>

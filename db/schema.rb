@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830141438) do
+ActiveRecord::Schema.define(version: 20160828185717) do
 
   create_table "picks", force: true do |t|
     t.integer  "team_id",    null: false
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20150830141438) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "players", ["position"], name: "index_players_on_position", using: :btree
 
   create_table "teams", force: true do |t|
     t.string   "name",           null: false

@@ -1,8 +1,10 @@
 
 <div class="row">
 <% teams.each do |team| %>
-  <div class="col-md-<%= gridsize %>">
-  <%= render partial: "team", locals: {team: team} %>
+<div class="col-md-<%= gridsize %>">
+  <% cache team do %>
+    <%= render partial: "team", locals: {team: team} %>
+  <% end %>
   </div>
 <% end %>
 </div>

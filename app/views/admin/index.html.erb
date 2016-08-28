@@ -23,7 +23,7 @@
     </div>
     <% end -%>
 
-    <%= form_tag(upload_players_path) do %>
+    <%= form_tag(upload_players_path, multipart: true) do %>
     <div class="form-group">
       <%= label_tag :players_csv %>
       <%= file_field_tag :players_csv %>

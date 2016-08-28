@@ -30,8 +30,9 @@ class AdminController < ApplicationController
 
   private
 
-  def load_players(filename)
-    File.open(filename).each do |line|
+  def load_players(file)
+    contents = file.read()
+    contents.split("\n").each do |line|
       line.chomp!
       csv = line.split(",")
 

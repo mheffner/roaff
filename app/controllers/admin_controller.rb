@@ -18,6 +18,8 @@ class AdminController < ApplicationController
   end
 
   def upload_players
+    puts "upload params: #{params.inspect}"
+
     ret = load_players(params[:players_csv])
     if !ret
       redirect_to admin_path, :flash => {:error => "Unable to load players"}

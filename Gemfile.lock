@@ -49,6 +49,7 @@ GEM
       sass (~> 3.2.19)
     compass-rails (2.0.0)
       compass (>= 0.12.2)
+    dalli (2.7.6)
     erubis (2.7.0)
     execjs (2.2.1)
     fssm (0.2.10)
@@ -153,6 +154,7 @@ PLATFORMS
 DEPENDENCIES
   chosen-rails
   coffee-rails (~> 4.0.0)
+  dalli (= 2.7.6)
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
@@ -170,4 +172,4 @@ DEPENDENCIES
   unicorn
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

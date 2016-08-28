@@ -8,6 +8,7 @@ class PicksController < ApplicationController
   def destroy
     @pick = Pick.find(params[:id])
     @pick.destroy
+    @pick.team.updated!
     redirect_to picks_path
   end
 
@@ -57,6 +58,9 @@ class PicksController < ApplicationController
     if pick.save
       cookies[:saved_team_id] = team.id
       cookies[:saved_player_id] = nil
+
+      # Force update
+      team.updated!
 
       redirect_to new_pick_path, :flash => {:success => "Picked #{pick.player.name_and_position} in the #{pick.round} round for #{pick.team.name}"}
     else

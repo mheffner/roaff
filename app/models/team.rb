@@ -7,4 +7,7 @@ class Team < ActiveRecord::Base
     picks.where(:round => round).count > 0
   end
 
+  def updated!
+    self.update!(:updated_at => Time.now)
+  end
 end

@@ -9,6 +9,11 @@ class AdminController < ApplicationController
 
   def drop_all_picks
     Pick.destroy_all
+
+    Team.all.each do |t|
+        t.updated!
+    end
+
     redirect_to admin_path
   end
 

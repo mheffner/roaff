@@ -2,7 +2,7 @@
 <div class="row">
   <% teams.each_with_index do |team, i| %>
   
-  <div class="<%= team_klass() %>">
+  <div class="<%= team_klass(i) %>">
     <% cache team do %>
       <%= render partial: "team", locals: {team: team} %>
     <% end %>

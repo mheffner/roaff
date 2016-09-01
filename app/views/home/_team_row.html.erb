@@ -1,10 +1,11 @@
 
 <div class="row">
-<% teams.each do |team| %>
-<div class="col-md-<%= gridsize %>">
-  <% cache team do %>
-    <%= render partial: "team", locals: {team: team} %>
-  <% end %>
+  <% teams.each_with_index do |team, i| %>
+  
+  <div class="<%= team_klass() %>">
+    <% cache team do %>
+      <%= render partial: "team", locals: {team: team} %>
+    <% end %>
   </div>
-<% end %>
+  <% end %>
 </div>

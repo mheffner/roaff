@@ -14,9 +14,9 @@
 <div class="container-fluid">
 
   <% 0.upto(@teams.length) do |i| %>
-  <% next if i % 4 != 0 %>
+  <% next if i % row_size != 0 %>
 
-  <%= render partial: "team_row", locals: {gridsize: 3, teams: @teams.slice(i, 4) } %>
+  <%= render partial: "team_row", locals: {gridsize: team_grid_size, teams: @teams.slice(i, row_size) } %>
   <% end %>
 
 </div>

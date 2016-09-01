@@ -27,7 +27,7 @@ module HomeHelper
       return klass
     end
 
-    klass += "col-md-offset-#{team_row_offset}"
+    klass += " col-md-offset-#{team_row_offset}"
     return klass
   end
 end

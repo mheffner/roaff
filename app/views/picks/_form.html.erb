@@ -39,7 +39,9 @@
   <% if @admin %>
   <%= select_tag(:round, options_for_select(1.upto(17).map{|r| ["Round #{r}", r]}), class: "form-control") %>
   <% else %>
-  <div id="team_rounds"></div>
+  <div id="team_rounds">
+    <select class="form-control"></select>
+  </div>
   <% end %>
 </div>
 

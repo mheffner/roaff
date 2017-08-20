@@ -6,7 +6,6 @@ gem 'dalli', '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.16'
-gem 'mysql2'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -36,6 +35,10 @@ gem 'select2-rails'
 
 group :production do
   gem 'rails_12factor'
+end
+
+group :development do
+  gem 'mysql2'
 end
 
 # Use ActiveModel has_secure_password

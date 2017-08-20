@@ -10,7 +10,7 @@
     </div>
     <% end -%>
 
-<%= form_for(@pick) do |f| %>
+<%= form_for(@pick, :html => {:class => class_for_picks_form}) do |f| %>
   <% if @pick.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pick.errors.count, "error") %> prohibited this pick from being saved:</h2>
@@ -35,7 +35,12 @@
 
 <div class="form-group">
   <%= f.label :round, "What round" %>
+
+  <% if @admin %>
   <%= select_tag(:round, options_for_select(1.upto(17).map{|r| ["Round #{r}", r]}), class: "form-control") %>
+  <% else %>
+  <div id="team_rounds"></div>
+  <% end %>
 </div>
 
 

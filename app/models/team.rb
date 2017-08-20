@@ -10,4 +10,10 @@ class Team < ActiveRecord::Base
   def updated!
     self.update!(:updated_at => Time.now)
   end
+
+  def rounds_left
+    myrounds = self.picks.map(&:round)
+
+    1.upto(Pick::MAX_PICKS).map{|i| i} - myrounds
+  end
 end

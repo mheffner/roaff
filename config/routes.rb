@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :teams
 
+  get 'teams/:id/rounds' => 'teams#rounds'
   get 'players/update'
   get 'player_overview' => 'home#overview'
   get 'team_overview' => 'home#team_overview'

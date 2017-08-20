@@ -13,18 +13,19 @@ class PicksController < ApplicationController
   end
 
   def new
+    @admin = params[:admin]
     @teams = Team.all
     @pick = Pick.new
     @avail_players = Player.notpicked.all
 
-    if cookies[:saved_team_id]
+    if @admin && cookies[:saved_team_id]
       team = Team.find(cookies[:saved_team_id]) rescue nil
       if team
         @pick.team = team
       end
     end
 
-    if cookies[:saved_player_id]
+    if @admin && cookies[:saved_player_id]
       player = Player.notpicked.find(cookies[:saved_player_id]) rescue nil
       if player
         @pick.player = player

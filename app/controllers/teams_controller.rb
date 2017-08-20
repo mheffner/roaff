@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   before_filter :authorize
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :rounds]
+  layout "empty", only: [:rounds]
 
   # GET /teams
   # GET /teams.json
@@ -20,6 +21,11 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
+  end
+
+  # GET /teams/1/rounds
+  def rounds
+    @rounds_left = @team.rounds_left
   end
 
   # POST /teams

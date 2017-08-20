@@ -1,3 +1,35 @@
 // Place all the styles related to the Picks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form-group {
+    margin-bottom: 38px;
+    .form-control {
+        font-size: 24px;
+    }
+
+    label {
+        font-size: 24px;
+    }
+
+    .mySelectFont {
+        font-size: 24px;
+    }
+
+
+    .select2-container--bootstrap .select2-selection {
+        font-size: 24px;
+    }
+}
+
+.actions {
+    .btn {
+        font-size: 24px;
+    }
+}
+
+.select2-container {
+    ul > li {
+        font-size: 24px;
+    }
+}

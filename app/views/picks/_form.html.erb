@@ -30,7 +30,7 @@
 
 <div class="form-group">
   <%= f.label :player_id, "Pick a Player" %>
-  <%= select_tag(:player_id, options_for_select(@avail_players.map{|p| [p.name_and_position, p.id]}, default_selected_player), include_blank: true, class: "player-select") %>
+  <%= select_tag(:player_id, options_for_select(@avail_players.map{|p| [p.name_and_position, p.id]}, default_selected_player), include_blank: true, class: "player-select", style: "width: 400px" ) %>
 </div>
 
 <div class="form-group">

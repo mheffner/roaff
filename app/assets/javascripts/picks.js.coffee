@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $( ".player-select" ).select2({
+  $(".player-select").select2({
     theme: "bootstrap"
   });
 

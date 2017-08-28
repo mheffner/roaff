@@ -27,7 +27,7 @@ csv = CSV.table(file)
 csv.each do |l|
   #puts "l #{l.inspect}"
 
-  m = l[:pos].match(/\A([A-Z]+)([0-9]+)\Z/)
+  m = l[:pos].match(/\A([A-Z]+)([0-9]+)\Z/) rescue nil
   unless m
     puts "can't match #{l.inspect}"
     exit 2

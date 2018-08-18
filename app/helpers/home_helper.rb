@@ -30,4 +30,12 @@ module HomeHelper
     klass += " col-md-offset-#{team_row_offset}"
     return klass
   end
+
+  def franchise_tag(round)
+    if round == Pick::MAX_PICKS
+      return "(FR)"
+    else
+      return ""
+    end
+  end
 end

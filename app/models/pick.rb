@@ -1,5 +1,5 @@
 class Pick < ActiveRecord::Base
-  MAX_PICKS = 20
+  MAX_PICKS = 21
 
   default_scope {order('round ASC')}
 

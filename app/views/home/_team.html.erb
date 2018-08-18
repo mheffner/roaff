@@ -18,13 +18,17 @@
 
   <% pick = pick_map[round] %>
   <% if pick %>
-  <td><%= pick.round %></td>
+  <td>
+    <%= pick.round %><%= franchise_tag(round) %>
+  </td>
   <td><%= pick.player.name %></td>
   <td><%= pick.player.position %></td>
   <td><%= pick.player.team %></td>
   <td><%= pick.player.bye_week %></td>
   <% else %>
-  <td colspan="5"><%= round %></td>
+  <td colspan="5">
+    <%= round %><%= franchise_tag(round) %>
+  </td>
   <% end %>
 </tr>
 <% end %>

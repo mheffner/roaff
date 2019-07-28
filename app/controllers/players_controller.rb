@@ -8,10 +8,12 @@ class PlayersController < ApplicationController
   end
 
   def new
+    @next_total_rank = last_total_rank + 1
     @player = Player.new
   end
 
   def create
+    @next_total_rank = last_total_rank + 1
     @player = Player.new(player_params)
 
     respond_to do |format|
@@ -31,5 +33,14 @@ class PlayersController < ApplicationController
   # XXX
   def not_found
     render :nothing => true, :status => 400
+  end
+
+  def last_total_rank
+    begin
+      p = Player.order(:total_rank).reverse_order.first
+      p.total_rank
+    rescue
+      0
+    end
   end
 end

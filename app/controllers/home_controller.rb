@@ -1,3 +1,5 @@
+require 'player_positions'
+
 class HomeController < ApplicationController
   MAX = 10
 
@@ -25,14 +27,7 @@ class HomeController < ApplicationController
   private
 
   def positions
-    [
-     {:name => "Running Backs", :code => "RB"},
-     {:name => "Quarterbacks", :code => "QB"},
-     {:name => "Wide Receivers", :code => "WR"},
-     {:name => "Tight Ends", :code => "TE"},
-     {:name => "Kickers", :code => "K"},
-     {:name => "Defense", :code => "DEF"},
-    ]
+    PlayerPositions::POSITIONS
   end
 
   def build_player_groups(limit, all)

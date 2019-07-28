@@ -5,16 +5,17 @@ source 'https://rubygems.org'
 gem 'dalli', '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.16'
+gem 'rails', '4.2.11.1'
 gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 
+gem 'compass-rails', '3.1.0'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
@@ -37,8 +38,8 @@ group :production do
   gem 'rails_12factor'
 end
 
-group :development do
-  gem 'mysql2', '0.3.21'
+group :development, :test do
+  gem 'sqlite3', '~> 1.3.6'
 end
 
 # Use ActiveModel has_secure_password

@@ -25,16 +25,33 @@
     <% end -%>
 
     <h1>Player data upload</h1>
-    <p></p>
+    <h2>Steps to upload new players from Fantasy Pros.</h2>
+       This will remove all players and picks, so only do once before drafting.
+        <ol>
+          <li>Go to the
+            <span 
+            <%= link_to "PPR Fantasy Football Draft Rankings",
+                "https://www.fantasypros.com/nfl/rankings/ppr-cheatsheets.php", class: "btn btn-default" %>
+          </li>
+          <li>Click <b>Options -> Download CSV</b></li>
+          <li>You will need to login to Facebook</li>
+          <li>Save the CSV file locally</li>
+          <li>Drop all picks and players at the bottom of this page.
+          <li>Upload the file below.</li>
+        </ol>
+
+    <div class="well">
     <%= form_tag(upload_players_path, multipart: true) do %>
     <div class="form-group">
-      <%= label_tag :players_csv %>
+      <%= label_tag :players_csv, "Fantasy Pros Draft Rankings CSV" %>
       <%= file_field_tag :players_csv, class: "btn btn-default" %>
     </div>
     <div class="form-group">
       <%= submit_tag "Upload", class: "btn btn-primary" %>
     </div>
     <% end %>
+
+    </div>
   </div>
 
   <div class="well">
